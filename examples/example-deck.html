@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your First Web App with Firebase</title>
+  <link rel="stylesheet" href="../html/gdg-slides.css">
+  <script src="../html/gdg-slides.js" defer></script>
+</head>
+<body>
+<main class="deck"
+      data-title="Your First Web App with Firebase"
+      data-author="Max Mustermann"
+      data-date="2026-11-22">
+
+  <!-- 1 · Title -->
+  <section class="slide slide--title">
+    <h1>Your First Web App with Firebase</h1>
+    <p class="subtitle">From zero to a deployed app in one evening</p>
+    <p class="author">Max Mustermann</p>
+    <p class="date">2026-11-22</p>
+  </section>
+
+  <!-- 2 · Agenda -->
+  <section class="slide slide--agenda">
+    <h2>Agenda</h2>
+    <ol class="agenda">
+      <li><strong>Why Firebase?</strong><span>What it is and when it fits your project</span></li>
+      <li><strong>Hands-on: your first app</strong><span>Set up, store data, deploy</span></li>
+      <li><strong>Going further</strong><span>Pitfalls, takeaways and resources</span></li>
+      <li><strong>Q&amp;A</strong></li>
+    </ol>
+  </section>
+
+  <!-- 3 · Chapter -->
+  <section class="slide slide--chapter">
+    <h2>Why Firebase?</h2>
+    <p class="subtitle">What it is and when it fits your project</p>
+  </section>
+
+  <!-- 4 · Default: text left, picture right -->
+  <section class="slide slide--default">
+    <h2>Firebase lets you ship a full app without running a server</h2>
+    <div class="body">
+      <div class="text">
+        <ul>
+          <li><strong>Hosting</strong> serves your web app worldwide</li>
+          <li><strong>Firestore</strong> stores and syncs data in real time</li>
+          <li><strong>Authentication</strong> handles sign-in for you</li>
+          <li>Free tier covers most student projects</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="images/illustration-code.png" alt="Terminal showing firebase init and firebase deploy">
+      </figure>
+    </div>
+    <aside class="notes">Mention that all three services are configured from one console and one CLI.</aside>
+  </section>
+
+  <!-- 5 · Key facts -->
+  <section class="slide slide--facts">
+    <h2>Today's app needs surprisingly little</h2>
+    <div class="facts">
+      <div class="fact"><strong>3</strong><span>Firebase services: Hosting, Firestore, Authentication</span></div>
+      <div class="fact"><strong>1</strong><span>command to deploy: <code>firebase deploy</code></span></div>
+      <div class="fact"><strong>0</strong><span>servers you have to run or patch yourself</span></div>
+    </div>
+  </section>
+
+  <!-- 6 · Two columns -->
+  <section class="slide slide--two-columns">
+    <h2>Firestore fits most new projects better than Realtime Database</h2>
+    <div class="columns">
+      <div class="col">
+        <h3>Cloud Firestore</h3>
+        <ul>
+          <li>Documents grouped in collections</li>
+          <li>Rich queries with indexes</li>
+          <li>Scales automatically</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Realtime Database</h3>
+        <ul>
+          <li>One large JSON tree</li>
+          <li>Very low-latency sync</li>
+          <li>Simple queries only</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · Chapter with image -->
+  <section class="slide slide--chapter">
+    <img src="images/illustration-code.png" alt="">
+    <h2>Hands-on: your first app</h2>
+    <p class="subtitle">Set up, store data, deploy</p>
+  </section>
+
+  <!-- 8 · Code -->
+  <section class="slide slide--code">
+    <h2>Saving an event to Firestore takes a few lines</h2>
+    <div class="body">
+<pre><code class="language-js"><span class="hljs-keyword">import</span> { initializeApp } <span class="hljs-keyword">from</span> <span class="hljs-string">"firebase/app"</span>;
+<span class="hljs-keyword">import</span> { getFirestore, collection, addDoc }
+  <span class="hljs-keyword">from</span> <span class="hljs-string">"firebase/firestore"</span>;
+
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">initializeApp</span>(firebaseConfig);
+<span class="hljs-keyword">const</span> db = <span class="hljs-title function_">getFirestore</span>(app);
+
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">addDoc</span>(<span class="hljs-title function_">collection</span>(db, <span class="hljs-string">"events"</span>), {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">"DU + TECH = ?"</span>,
+  <span class="hljs-attr">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-title function_">Date</span>(<span class="hljs-string">"2026-12-03"</span>),
+});</code></pre>
+      <div class="explain">
+        <ul>
+          <li><code>firebaseConfig</code> comes from the console</li>
+          <li><code>addDoc</code> creates an ID for you</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · Full width: table -->
+  <section class="slide slide--full">
+    <h2>Pick the service that matches what your app needs</h2>
+    <div class="body">
+      <table>
+        <thead><tr><th>Your app needs to …</th><th>Firebase service</th><th>Typical use</th></tr></thead>
+        <tbody>
+          <tr><td>serve the website</td><td>Hosting</td><td>static sites, single-page apps</td></tr>
+          <tr><td>store and sync data</td><td>Cloud Firestore</td><td>events, chats, to-do lists</td></tr>
+          <tr><td>let users sign in</td><td>Authentication</td><td>Google, GitHub, e-mail login</td></tr>
+          <tr><td>store user uploads</td><td>Cloud Storage</td><td>profile pictures, PDFs</td></tr>
+          <tr><td>run code on a server</td><td>Cloud Functions</td><td>e-mails, payments, webhooks</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 10 · Image -->
+  <section class="slide slide--image">
+    <h2>A typical student project combines three services</h2>
+    <figure>
+      <img src="images/architecture.png" alt="Diagram: the web app talks to Hosting, Cloud Firestore and Authentication">
+      <figcaption>The browser loads the app from Hosting, then talks directly to Firestore and Authentication.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 11 · Chapter -->
+  <section class="slide slide--chapter">
+    <h2>Going further</h2>
+    <p class="subtitle">Pitfalls, takeaways and resources</p>
+  </section>
+
+  <!-- 12 · Full width: callouts -->
+  <section class="slide slide--full">
+    <h2>Three pitfalls we see in almost every first project</h2>
+    <div class="body">
+      <div class="callout important"><strong>Security rules</strong>Never ship the default "allow read, write: if true" rules.</div>
+      <div class="callout warning"><strong>API keys</strong>The web config is public by design - protect data with rules, not secrecy.</div>
+      <div class="callout tip"><strong>Emulator</strong>Use the Local Emulator Suite to test without touching production data.</div>
+    </div>
+  </section>
+
+  <!-- 13 · Statement -->
+  <section class="slide slide--statement">
+    <blockquote>
+      <p>Ship a small thing early - then iterate.</p>
+      <footer>Our rule of thumb for hackathon projects</footer>
+    </blockquote>
+  </section>
+
+  <!-- 14 · Default without picture -->
+  <section class="slide slide--default">
+    <h2>Key takeaways</h2>
+    <div class="body">
+      <div class="text">
+        <ul>
+          <li>Firebase removes server work so you can focus on your idea</li>
+          <li>Start with Hosting, Firestore and Authentication</li>
+          <li>Write security rules <mark>before</mark> you share the link</li>
+          <li>Test locally with the Emulator Suite</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 · References -->
+  <section class="slide slide--references">
+    <h2>References</h2>
+    <ol class="references">
+      <li>Google. <cite>Firebase Hosting documentation</cite>. <a href="https://firebase.google.com/docs/hosting">firebase.google.com/docs/hosting</a></li>
+      <li>Google. <cite>Cloud Firestore documentation</cite>. <a href="https://firebase.google.com/docs/firestore">firebase.google.com/docs/firestore</a></li>
+      <li>Google. <cite>Firebase Authentication documentation</cite>. <a href="https://firebase.google.com/docs/auth">firebase.google.com/docs/auth</a></li>
+      <li>Google. <cite>Firebase CLI reference</cite>. <a href="https://firebase.google.com/docs/cli">firebase.google.com/docs/cli</a></li>
+      <li>Google. <cite>Firebase Local Emulator Suite</cite>. <a href="https://firebase.google.com/docs/emulator-suite">firebase.google.com/docs/emulator-suite</a></li>
+    </ol>
+  </section>
+
+  <!-- 16 · Outro -->
+  <section class="slide slide--outro">
+    <h2>Any questions?</h2>
+    <p class="subtitle">Thank you for joining!</p>
+    <ul class="contact">
+      <li class="name">Max Mustermann</li>
+      <li>max.mustermann@example.com</li>
+      <li>Instagram: @gdg_ude</li>
+    </ul>
+    <figure class="qr">
+      <img src="images/qr-example.svg" alt="QR code to the GDG UDE GitHub organisation">
+      <figcaption>Slides &amp; code</figcaption>
+    </figure>
+  </section>
+
+  <!-- 17 · Next event -->
+  <section class="slide slide--next-event">
+    <img class="poster" src="images/next-event-poster.png" alt="Poster: UDE meets Google - DU + TECH = ?">
+    <p class="eyebrow">Next event</p>
+    <h2>UDE meets Google: Semester Kick-off</h2>
+    <ul class="event-meta">
+      <li class="date">Wednesday, 3 December 2026 · 18:00</li>
+      <li class="place">SH-403, Schützenbahn 70, Essen</li>
+    </ul>
+    <p class="description">Talks, workshops and community: see what we have planned this semester. Open to all students.</p>
+    <figure class="qr">
+      <img src="images/qr-example.svg" alt="QR code to register">
+      <figcaption>Register now</figcaption>
+    </figure>
+  </section>
+
+</main>
+</body>
+</html>

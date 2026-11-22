@@ -1,0 +1,3 @@
+# Python tools (tools/gdg_pptx.py, tools/build_templates.py)
+python-pptx>=1.0
+lxml>=5.0

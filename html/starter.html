@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentation title</title>
+  <!--
+    GDG UDE slide design - starter deck. Copy this file and delete what you do not need.
+    Paths: keep the repository structure (html/ + assets/) or use the CDN:
+      https://cdn.jsdelivr.net/gh/GDGoC-University-of-Duisburg-Essen/slides-design-agentic@main/html/gdg-slides.css
+      https://cdn.jsdelivr.net/gh/GDGoC-University-of-Duisburg-Essen/slides-design-agentic@main/html/gdg-slides.js
+    Present: open in a browser (arrow keys, O = overview, T = light/dark, F = fullscreen).
+    PDF:     node tools/render.mjs path/to/deck.html --both
+  -->
+  <link rel="stylesheet" href="gdg-slides.css">
+  <script src="gdg-slides.js" defer></script>
+</head>
+<body>
+<main class="deck" data-title="Presentation title" data-author="Speaker name" data-date="2026-11-22" data-lang="en">
+
+  <section class="slide slide--title">
+    <h1>Presentation title</h1>
+    <p class="subtitle">Optional subtitle</p>
+    <!-- author and date are taken from data-author / data-date -->
+  </section>
+
+  <section class="slide slide--agenda">
+    <h2>Agenda</h2>
+    <ol class="agenda"></ol> <!-- empty = filled from the chapter slides -->
+  </section>
+
+  <section class="slide slide--chapter">
+    <h2>First chapter</h2>
+    <p class="subtitle">Optional subtitle</p>
+  </section>
+
+  <section class="slide slide--default">
+    <h2>Slide titles state the message of the slide</h2>
+    <div class="body">
+      <div class="text">
+        <ul>
+          <li>3–5 short bullet points</li>
+          <li>One line each, max. ~12 words</li>
+          <li>Details go into the <strong>speaker notes</strong></li>
+        </ul>
+      </div>
+      <figure><img src="../examples/images/illustration-code.png" alt="Describe the picture"></figure>
+    </div>
+    <aside class="notes">What the speaker says on this slide.</aside>
+  </section>
+
+  <section class="slide slide--full">
+    <h2>Tables and longer lists use the full width</h2>
+    <div class="body">
+      <table>
+        <thead><tr><th>Column</th><th>Column</th><th class="num">Value</th></tr></thead>
+        <tbody>
+          <tr><td>Row</td><td>Text</td><td class="num">42</td></tr>
+          <tr><td>Row</td><td>Text</td><td class="num">7</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="slide slide--two-columns">
+    <h2>Compare two things side by side</h2>
+    <div class="columns">
+      <div class="col"><h3>Option A</h3><ul><li>Advantage</li><li>Another point</li></ul></div>
+      <div class="col"><h3>Option B</h3><ul><li>Advantage</li><li>Another point</li></ul></div>
+    </div>
+  </section>
+
+  <section class="slide slide--code">
+    <h2>Show only the code that matters</h2>
+    <div class="body">
+<pre><code><span class="hljs-keyword">const</span> greeting = <span class="hljs-string">"Hello GDG UDE!"</span>;
+<span class="hljs-title function_">console</span>.log(greeting);</code></pre>
+    </div>
+  </section>
+
+  <section class="slide slide--facts">
+    <h2>Three numbers people should remember</h2>
+    <div class="facts">
+      <div class="fact"><strong>3</strong><span>short label</span></div>
+      <div class="fact"><strong>1</strong><span>short label</span></div>
+      <div class="fact"><strong>0</strong><span>short label</span></div>
+    </div>
+  </section>
+
+  <section class="slide slide--statement">
+    <p class="statement">One strong statement per slide is easier to remember.</p>
+    <p class="attribution">Optional attribution</p>
+  </section>
+
+  <section class="slide slide--references">
+    <h2>References</h2>
+    <ol class="references">
+      <li>Author, A. <cite>Title of the source</cite>. Publisher, Year. <a href="https://example.com">example.com</a></li>
+    </ol>
+  </section>
+
+  <section class="slide slide--outro">
+    <h2>Any questions?</h2>
+    <p class="subtitle">Thank you for your attention!</p>
+    <ul class="contact">
+      <li class="name">Speaker name</li>
+      <li>name@example.com</li>
+      <li>Instagram: @gdg_ude</li>
+    </ul>
+  </section>
+
+  <section class="slide slide--next-event">
+    <img class="poster" src="../examples/images/next-event-poster.png" alt="Event poster">
+    <p class="eyebrow">Next event</p>
+    <h2>Event title</h2>
+    <ul class="event-meta">
+      <li class="date">Wednesday, 3 December 2026 · 18:00</li>
+      <li class="place">SH-403, Schützenbahn 70, Essen</li>
+    </ul>
+    <p class="description">Short description of the event, max. three lines.</p>
+    <figure class="qr"><img src="../examples/images/qr-example.svg" alt="QR code to register"><figcaption>Register now</figcaption></figure>
+  </section>
+
+</main>
+</body>
+</html>

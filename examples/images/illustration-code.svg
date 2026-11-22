@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" font-family="Google Sans Code, monospace">
+  <rect width="1200" height="900" fill="#E8F0FE"/>
+  <circle cx="1080" cy="120" r="190" fill="#F9AB00"/>
+  <circle cx="120" cy="820" r="230" fill="#34A853"/>
+  <circle cx="1010" cy="790" r="60" fill="#EA4335"/>
+  <g fill="#4285F4" opacity=".6"><circle cx="150" cy="120" r="9"/><circle cx="190" cy="120" r="9"/><circle cx="230" cy="120" r="9"/><circle cx="150" cy="160" r="9"/><circle cx="190" cy="160" r="9"/><circle cx="230" cy="160" r="9"/><circle cx="150" cy="200" r="9"/><circle cx="190" cy="200" r="9"/><circle cx="230" cy="200" r="9"/></g>
+  <rect x="200" y="230" width="800" height="500" rx="32" fill="#202124"/>
+  <rect x="200" y="230" width="800" height="70" rx="32" fill="#35363A"/><rect x="200" y="270" width="800" height="30" fill="#35363A"/>
+  <circle cx="250" cy="265" r="12" fill="#EA4335"/><circle cx="290" cy="265" r="12" fill="#F9AB00"/><circle cx="330" cy="265" r="12" fill="#34A853"/>
+  <g font-size="34">
+    <text x="250" y="380" fill="#8AB4F8">$ <tspan fill="#E8EAED">firebase init hosting</tspan></text>
+    <text x="250" y="440" fill="#81C995">✔ <tspan fill="#9AA0A6">Firebase initialized</tspan></text>
+    <text x="250" y="520" fill="#8AB4F8">$ <tspan fill="#E8EAED">firebase deploy</tspan></text>
+    <text x="250" y="580" fill="#81C995">✔ <tspan fill="#9AA0A6">Deploy complete!</tspan></text>
+    <text x="250" y="660" fill="#FDD663">→ <tspan fill="#E8EAED">https://my-app.web.app</tspan></text>
+  </g>
+</svg>

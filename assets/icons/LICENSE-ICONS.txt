@@ -1,0 +1,2 @@
+Icons are Material Icons by Google, licensed under the Apache License 2.0
+(https://github.com/google/material-design-icons).

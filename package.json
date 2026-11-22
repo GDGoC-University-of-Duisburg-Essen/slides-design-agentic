@@ -1,0 +1,16 @@
+{
+  "name": "gdg-ude-slides-design",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Slide design system of GDG on Campus University of Duisburg-Essen",
+  "type": "module",
+  "scripts": {
+    "render": "node tools/render.mjs",
+    "examples": "node tools/render.mjs examples/example-deck.html --both --out examples --png examples/screenshots --slides 1,2,3,4,9,17 --scale 0.75",
+    "templates": "python3 tools/build_templates.py",
+    "lint": "node tools/render.mjs examples/example-deck.html --lint"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}
